@@ -1,6 +1,6 @@
 package com.tugas.deploy.controller;
 
-import com.tugas.deploy.model.Mahasiswa;
+import com.tugas.deploy.model.User;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +15,7 @@ import java.util.List;
 @Controller
 public class UserController {
 
-    private static final List<Mahasiswa> listMahasiswa = new ArrayList<>();
+    private static final List<User> listUser = new ArrayList<>();
     private final String ADMIN_USER = "admin";
     private final String ADMIN_PASS = "20230140104";
 
@@ -24,7 +24,7 @@ public class UserController {
         if (session.getAttribute("user") == null) {
             return "redirect:/login";
         }
-        model.addAttribute("listMahasiswa", listMahasiswa);
+        model.addAttribute("listUser", listUser);
         return "home";
     }
 
@@ -51,11 +51,11 @@ public class UserController {
     }
 
     @PostMapping("/submit")
-    public String submitProcess(@ModelAttribute Mahasiswa mahasiswa, HttpSession session) {
+    public String submitProcess(@ModelAttribute User user, HttpSession session) {
         if (session.getAttribute("user") == null) {
             return "redirect:/login";
         }
-        listMahasiswa.add(mahasiswa);
+        listUser.add(user);
         return "redirect:/";
     }
 

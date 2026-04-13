@@ -10,9 +10,9 @@
     </div>
     <div class="container">
         <p>Selamat datang di aplikasi!</p>
-        <a th:href="@{/form}" class="link-blue">+ Input Data Mahasiswa</a>
+        <a th:href="@{/form}" class="link-blue">+ Input Data User</a>
         
-        <h3 style="margin-top: 20px;">Data Mahasiswa</h3>
+        <h3 style="margin-top: 20px;">Data User</h3>
         <table class="table-mhs">
             <thead>
                 <tr>
@@ -23,13 +23,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="mhs, iter : ${listMahasiswa}">
+                <tr th:each="user, iter : ${listUser}">
                     <td th:text="${iter.count}">1</td>
-                    <td th:text="${mhs.nama}">Ardian Mulya</td>
-                    <td th:text="${mhs.nim}">20210140019</td>
-                    <td th:text="${mhs.jenisKelamin}">Laki-laki</td>
+                    <td th:text="${user.nama}">Ardian Mulya</td>
+                    <td th:text="${user.nim}">20210140019</td>
+                    <td th:text="${user.jenisKelamin}">Laki-laki</td>
                 </tr>
-                <tr th:if="${#lists.isEmpty(listMahasiswa)}">
+                <tr th:if="${#lists.isEmpty(listUser)}">
                     <td colspan="4" class="empty-msg">Belum ada data</td>
                 </tr>
             </tbody>
